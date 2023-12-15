@@ -27,6 +27,10 @@ WeaponData
 		{
 				    "ammo_clip_size"   								"40"
 		}
+		tcp_kk_balance_extended_ammo_core
+		{
+				    "ammo_clip_size"   								"64"
+		}
 
 		tcp_sp_base
 		{
