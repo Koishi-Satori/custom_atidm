@@ -1,0 +1,127 @@
+WeaponData
+{
+	// for archon_stun_impact
+	// grenade behaviors
+	"grenade_bounce_vel_frac_shallow"				"0.53"
+	"grenade_bounce_vel_frac_sharp"					"0.32"
+	"grenade_bounce_vel_frac_along_normal"			"0.5"
+	"grenade_bounce_randomness"						"0.2"
+	"grenade_bounce_extra_vertical_randomness"		"0.2"
+	"grenade_roll_vel_frac_per_second"				"0.1"
+
+	Mods
+	{
+		clustermissile_fast_recharge
+		{
+		}
+
+		mod_ordnance_core
+		{
+		}
+
+		dev_mod_low_recharge
+		{
+		}
+		burn_mod_titan_dumbfire_rockets
+		{
+		}
+		sur_level_0
+		{
+
+		}
+		sur_level_1
+		{
+
+		}
+		sur_level_2
+		{
+
+		}
+		sur_level_3
+		{
+
+		}
+		pas_northstar_cluster
+		{
+
+		}
+		fd_twin_cluster
+		{
+		}
+
+		//from super.mixed.game
+		archon_stun_impact // create a stun grenade on impact, no sonar effect
+		{
+			"projectile_trail_effect_0" 					"wpn_grenade_frag_blue"
+			"bounce_effect_table"							"bounce_arc"
+
+			"titanarmor_critical_hit_required"          	"0" // able to damage titan
+
+			"grenade_ignition_time"							"0.75" // explosion delay
+
+			"impact_effect_table" 							"exp_emp"
+			"impulse_force"   								"500"
+			"impulse_force_explosions"						"50000"
+
+			// cooldown
+			"regen_ammo_refill_rate"						"13.5"
+
+			// bigger radius
+			"explosion_inner_radius"  						"150"
+			"explosionradius" 								"350"
+
+			"explosion_damage"								"200"
+			"explosion_damage_heavy_armor"					"1000"
+		}
+
+		//from super.mixed.game
+		charge_ball
+		{
+			"fire_sound_1_player_1p"						""
+			"fire_sound_1_player_3p"						""
+			"projectile_trail_effect_0" 					""
+
+			"charge_cooldown_time"							"0.6"
+			"charge_cooldown_delay"   						"0.1"
+			"charge_end_forces_fire"						"1"
+			"charge_remain_full_when_fired"					"1"
+
+			"projectile_straight_time_min"					"0.5"
+			"projectile_straight_time_max"					"20"
+			"projectile_straight_radius_min"				"0"
+			"projectile_straight_radius_max"				"1"
+
+			"bolt_hitsize"									"0.0"
+			"bolt_hitsize_grow1_time"						"0.075"
+			"bolt_hitsize_grow1_size"						"1.0"
+			"bolt_hitsize_grow2_time"						"0.5"
+			"bolt_hitsize_grow2_size"						"4.0"
+			"bolt_hitsize_growfinal_lerptime"				"1.5"
+			"bolt_hitsize_growfinal_size"					"25.0"
+
+			"damage_near_value"   							"20"
+			"damage_far_value"								"20"
+			"damage_near_value_titanarmor"					"200" //700 //Contact damage
+			"damage_far_value_titanarmor" 					"200" //700 //Contact damage
+			"explosion_damage"								"60"
+			"explosion_damage_heavy_armor"					"200"
+
+			"explosion_inner_radius"  						"150"
+			"explosionradius" 								"220"
+			"impulse_force"   								"1"
+
+			"projectile_trail_effect_0" 					"P_wpn_arcball_trail"
+			"impact_effect_table" 							"exp_arc_ball"
+			"fx_muzzle_flash_view"							"P_wpn_mflash_arcball_FP"
+			"fx_muzzle_flash_world"							"P_wpn_mflash_arcball"
+			"fx_muzzle_flash_attach"						"muzzle_flash"
+			"charge_effect_1p"								"wpn_arc_cannon_charge_fp"
+			"charge_effect_3p"								"wpn_arc_cannon_charge"
+			"charge_effect_attachment"						"muzzle_flash"
+
+			"regen_ammo_refill_rate"						"18.0"
+
+			"fire_rate"   									"10.0"
+		}
+	}
+}

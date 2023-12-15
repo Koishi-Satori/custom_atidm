@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SQUIRREL_SDK">
+    <CLASSES>
+      <root url="file://D:/dev_tools/squirrel3" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

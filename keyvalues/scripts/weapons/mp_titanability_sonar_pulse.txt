@@ -1,0 +1,25 @@
+WeaponData
+{
+	Mods
+	{
+		pas_tone_sonar
+		{
+
+		}
+		fd_sonar_duration
+		{
+
+		}
+		fd_sonar_damage_amp
+		{
+		}
+
+		tcp_smoke
+		{
+			"projectile_trail_effect_0"						"P_wpn_grenade_smoke_trail"
+		}
+		tcp_gravity
+		{
+		}
+	}
+}

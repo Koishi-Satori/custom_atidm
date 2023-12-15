@@ -1,0 +1,34 @@
+WeaponData
+{
+	Mods
+	{
+		pas_ion_lasercannon
+		{
+		}
+		fd_laser_cannon
+		{
+
+		}
+		fd_balance
+		{
+		}
+
+		tcp_gravity
+		{
+			"fire_mode"   									"offhand_instant"
+
+			// Charge settings
+			"charge_time" 									"1.0" // chargeup time
+			"core_duration"									"1.0"
+			"charge_cooldown_delay"							"1.0" // equal as "core_duration"
+			"charge_cooldown_time"   						"3.0" // should be "core_duration" + "charge_time" + 1.0
+			"charge_end_forces_fire"  						"1"
+			"charge_require_input"							"0"
+
+			// sustained laser settings
+			"sustained_laser_enabled"						"0"
+			"sustained_discharge_duration"					"0.0" // sustained laser duration
+			"sustained_laser_enabled"						"0"
+		}
+	}
+}

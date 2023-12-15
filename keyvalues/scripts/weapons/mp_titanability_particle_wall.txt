@@ -1,0 +1,62 @@
+WeaponData
+{
+	Mods
+	{
+		pas_defensive_core
+		{
+		}
+
+		dev_mod_low_recharge
+		{
+		}
+		burn_mod_titan_particle_wall
+		{
+		}
+
+		npc_normal_difficulty
+		{
+		}
+
+		amped_wall
+		{
+
+		}
+		sur_level_0
+		{
+
+		}
+		sur_level_1
+		{
+
+		}
+		sur_level_2
+		{
+
+		}
+		sur_level_3
+		{
+
+		}
+
+		// from Super.Mixed.Game
+        brute4_bubble_shield
+		{
+			"fire_rate"   									"1.0"
+		//	"fire_duration"                                 "8.0"
+		//	"regen_ammo_refill_rate"						"*2"
+		}
+
+		tcp_parent_shield
+		{
+
+		}
+		tcp_color_shield
+		{
+			"regen_ammo_refill_rate"						"*0.75"
+		}
+		tcp_dash_shield
+		{
+			"regen_ammo_refill_rate"						"*2"
+		}
+	}
+}

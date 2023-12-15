@@ -1,0 +1,16 @@
+{
+  "Name": "custom_ttdm",
+  "Description": "Custom Titan load-out in gui.",
+  "Authors": ["KKoishi_", "LightBlueCube"],
+  "LoadPriority": 101,
+  "RequiredOnClient": false,
+  "Scripts": [
+    {
+      "Path": "custom_ui.nut",
+      "RunOn": "SERVER && MP",
+      "ServerCallback": {
+        "After": "custom_ui_init"
+      }
+    }
+  ]
+}
