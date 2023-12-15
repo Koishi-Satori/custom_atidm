@@ -151,7 +151,7 @@ void function FuckUpPlayer( entity player )
 	for( int i = 25; i > 0; i-- )
 	{
 		WaitFrame()
-		thread SendKsGUI_Threaded( player, "\n喜欢蹲起?", < 255, 0, 0 >, 5, 1 )
+		SendHudMessage( player, "\n喜欢蹲起?",  -1, 0.4, 200, 200, 225, 0, 0.15, 6, 1);
 		if( !IsAlive( player ) )
 			player.RespawnPlayer( null )
 		if( IsAlive( player ) )

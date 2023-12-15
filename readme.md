@@ -10,3 +10,4 @@
 ## 使用须知
 - 请参照我的net io, 部署服务并且**填入你的服务url**, url定义位于custom_ui.nut的const string HTTP_IO_URL
 - 启用反蹲起请设置anti_insult.nut的enable_anti_insult为true
+- 将libs里的mod同时加入你的服务器mod目录

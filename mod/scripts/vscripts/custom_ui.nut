@@ -58,6 +58,7 @@ void function custom_ui_init() {
     #if SERVER
     AddClientCommandCallback( "ac", AdminCommand );
     AddClientCommandCallback("!switch", SwitchCommand);
+    AddChatCommandCallback("!switch", SwitchCommand);
     #endif
 }
 
@@ -129,17 +130,17 @@ void function RespawnMessage_CallBackImpl(entity player) {
             ReplacePilotWeapon(player)
         }
 
-    thread KickPlayer()
+    thread KickPlayer(player)
 	}
 }
 
-void function KickPlayer() {
-    if (player.GetPlayerName() in ShitPlayerNames) {
-    foreach (entity ent in GetPlayerArray()) {
-        Chat_ServerPrivateMessage(entity, player.GetPlayerName() + " is fucking kicked, lmfao", false)
-    }
-    wait 0.5
-    ServerCommand("kickid " + player.GetUID())
+void function KickPlayer(entity player) {
+    if (ShitPlayerNames.contains(player.GetPlayerName())) {
+        foreach (entity ent in GetPlayerArray()) {
+            Chat_ServerPrivateMessage(ent, player.GetPlayerName() + " is fucking kicked, lmfao", false)
+        }
+        wait 0.5
+        ServerCommand("kickid " + player.GetUID())
     }
 }
 

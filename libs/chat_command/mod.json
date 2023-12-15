@@ -1,0 +1,16 @@
+{
+    "Name": "ChatCommandRef",
+    "Description": "Chat Command",
+    "Authors": ["LightBlueCube"],
+    "LoadPriority": 100,
+    "RequiredOnClient": false,
+    "Scripts": [
+    {
+      "Path": "sh_chatcommand.nut",
+      "RunOn": "SERVER && MP",
+      "ServerCallback": {
+        "After": "ChatCommand_Init"
+      }
+    }
+  ]
+}
