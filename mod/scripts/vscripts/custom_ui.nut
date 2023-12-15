@@ -71,12 +71,16 @@ void function DisplayHealth(entity player) {
 
     string id_hp = UniqueString("kk_health#")
     string id_shp = UniqueString("kk_shield_health#")
-    NSCreateStatusMessageOnPlayer(player, "当前血量", "    0/0", id_hp)
-    NSCreateStatusMessageOnPlayer(player, "当前护盾", "    0/0", id_shp)
+    string id_vel = UniqueString("kk_velocity#")
+    NSCreateStatusMessageOnPlayer(player, "", "当前血量: 0/0", id_hp)
+    NSCreateStatusMessageOnPlayer(player, "", "当前护盾: 0/0", id_shp)
+    NSCreateStatusMessageOnPlayer(player, "", "当前速度: unknown", id_vel)
+
     OnThreadEnd(
-        function() : (player, id_hp, id_shp) {
+        function() : (player, id_hp, id_shp, id_vel) {
             NSDeleteStatusMessageOnPlayer(player, id_hp)
             NSDeleteStatusMessageOnPlayer(player, id_shp)
+            NSDeleteStatusMessageOnPlayer(player, id_vel)
         }
     )
 
@@ -85,9 +89,18 @@ void function DisplayHealth(entity player) {
             break
         int hp = player.GetHealth()
         int shp = player.GetShieldHealth()
+        vector vel = player.GetVelocity()
+        float vel_x = vel.x
+        float vel_y = vel.y
+//        float vel_z = vel.z
+        float playerVelKph = sqrt(vel_x * vel_x + vel_y * vel_y) * 0.091392 * 0.621371
+//        if (vel_z < 0)
+//            vel_z *= -1
+//        vel_z *= (0.091392 * 0.621371)
 
         NSEditStatusMessageOnPlayer(player, "", "当前血量: " + hp + "/" + player.GetMaxHealth(), id_hp)
         NSEditStatusMessageOnPlayer(player, "", "当前盾量: " + shp + "/" + player.GetShieldHealthMax(), id_shp)
+        NSEditStatusMessageOnPlayer(player, "", "当前速度: " + format("%3i", playerVelKph) + "kph", id_vel)
         WaitFrame()
     }
 }
@@ -547,7 +560,7 @@ void function InitTitanLoadouts() {
     TitanLoadouts_MainWpn.append("mp_titanweapon_xo16_vanguard");
     TitanLoadouts_MainWpn_Mods.append(["fd_balance"]);
     TitanLoadouts_MainWpn.append("mp_titanweapon_sticky_40mm");
-    TitanLoadouts_MainWpn_Mods.append(["burn_mod_titan_40mm", "extended_ammo"]);
+    TitanLoadouts_MainWpn_Mods.append(["tcp_kk_titan_40mm", "extended_ammo"]);
     TitanLoadouts_MainWpn.append("mp_titanweapon_meteor");
     TitanLoadouts_MainWpn_Mods.append(["tcp_shotgun"]);
     TitanLoadouts_MainWpn.append("mp_titanweapon_particle_accelerator");

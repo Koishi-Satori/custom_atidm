@@ -195,10 +195,10 @@ void function DamageCoreThink( entity weapon, float coreDuration )
 	{
 		entity weapon = owner.GetMainWeapons()[0]
 		if (weapon.GetWeaponClassName() == "mp_titanweapon_xo16_shorty") {
-			if (IsValid(owner))
-				SendHudMessage(owner, "为了防止崩溃, 已将短点射xo16原定的增伤改为增加弹匣容量为64并且提升换弹速度",  -1, 0.4, 200, 200, 225, 0, 0.15, 6, 1);
-			weapon.AddMod("tcp_kk_balance_extended_ammo_core")
+			SendHudMessage(owner, "为了防止崩溃, 已将短点射xo16原定的增伤改为提升换弹速度, 泰坦伤害依旧正常提升",  -1, 0.4, 200, 200, 225, 0, 0.15, 6, 1);
 			weapon.AddMod("fast_reload")
+		} else if (weapon.GetWeaponClassName() == "mp_titanweapon_particle_accelerator") {
+			// do nothing
 		} else
 			foreach( mod in GetWeaponBurnMods( weapon.GetWeaponClassName() ) )
 			{
@@ -224,9 +224,10 @@ void function DamageCoreThink( entity weapon, float coreDuration )
 				{
 					entity weapon = owner.GetMainWeapons()[0]
 					if (weapon.GetWeaponClassName() == "mp_titanweapon_xo16_shorty") {
-						weapon.RemoveMod("tcp_kk_balance_extended_ammo_core")
 						weapon.RemoveMod("fast_reload")
-					} else
+					} else if (weapon.GetWeaponClassName() == "mp_titanweapon_particle_accelerator") {
+						// do nothing
+					}  else
 						foreach( mod in GetWeaponBurnMods( weapon.GetWeaponClassName() ) )
 						{
 							weapon.RemoveMod( mod )
