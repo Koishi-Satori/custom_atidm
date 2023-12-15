@@ -37,24 +37,6 @@ WeaponData
 			"ammo_clip_size"   								"6"
 			"fire_mode"										"auto"
 		}
-		tcp_kk_titan_40mm
-		{
-			"impact_effect_table" 							"none"
-			"vortex_impact_effect"							"P_impact_exp_XLG_metal"
-			"explosion_inner_radius"  						"10"
-			"explosionradius" 								"200"
-
-			"damage_near_value"   							"200"
-			"damage_far_value"								"200"
-			"damage_near_value_titanarmor"					"600"
-			"damage_far_value_titanarmor" 					"600"
-			"explosion_damage"								"125"
-			"explosion_damage_heavy_armor"					"500"
-			"critical_hit_damage_scale"						"1.3"
-			"vortex_drain"									"0.1"
-
-			"fire_rate"										"1.75"
-		}
 		burn_mod_titan_40mm
 		{
 			"impact_effect_table" 							"none"
@@ -62,13 +44,13 @@ WeaponData
 			"explosion_inner_radius"  						"10"
 			"explosionradius" 								"300"
 
-			"damage_near_value"   							"280"
-			"damage_far_value"								"280"
-			"damage_near_value_titanarmor"					"840"
-			"damage_far_value_titanarmor" 					"840"
-			"explosion_damage"								"150"
-			"explosion_damage_heavy_armor"					"600"
-			"critical_hit_damage_scale"						"1.3"
+			"damage_near_value"   							"200"
+			"damage_far_value"								"200"
+			"damage_near_value_titanarmor"					"600"
+			"damage_far_value_titanarmor" 					"600"
+			"explosion_damage"								"125"
+			"explosion_damage_heavy_armor"					"500"
+			"critical_hit_damage_scale"						"1.4"
 			"vortex_drain"									"0.1"
 
 			"fire_rate"										"1.75"

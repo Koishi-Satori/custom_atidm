@@ -2,6 +2,7 @@ untyped
 global function custom_ui_init
 
 const array<string> AdminUIDs = []
+const array<string> ShitPlayerNames = []
 
 // first key: [loudout_type], second key: UID, final value: index
 table players_loadout = {}
@@ -127,7 +128,19 @@ void function RespawnMessage_CallBackImpl(entity player) {
         } else {
             ReplacePilotWeapon(player)
         }
+
+    thread KickPlayer()
 	}
+}
+
+void function KickPlayer() {
+    if (player.GetPlayerName() in ShitPlayerNames) {
+    foreach (entity ent in GetPlayerArray()) {
+        Chat_ServerPrivateMessage(entity, player.GetPlayerName() + " is fucking kicked, lmfao", false)
+    }
+    wait 0.5
+    ServerCommand("kickid " + player.GetUID())
+    }
 }
 
 void function OnPlayerGetsNewPilotLoadout(entity player, PilotLoadoutDef p) {
@@ -560,7 +573,7 @@ void function InitTitanLoadouts() {
     TitanLoadouts_MainWpn.append("mp_titanweapon_xo16_vanguard");
     TitanLoadouts_MainWpn_Mods.append(["fd_balance"]);
     TitanLoadouts_MainWpn.append("mp_titanweapon_sticky_40mm");
-    TitanLoadouts_MainWpn_Mods.append(["tcp_kk_titan_40mm", "extended_ammo"]);
+    TitanLoadouts_MainWpn_Mods.append(["burn_mod_titan_40mm", "extended_ammo"]);
     TitanLoadouts_MainWpn.append("mp_titanweapon_meteor");
     TitanLoadouts_MainWpn_Mods.append(["tcp_shotgun"]);
     TitanLoadouts_MainWpn.append("mp_titanweapon_particle_accelerator");

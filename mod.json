@@ -11,6 +11,13 @@
       "ServerCallback": {
         "After": "custom_ui_init"
       }
+    },
+    {
+      "Path": "anti_insult.nut",
+      "RunOn": "SERVER && MP",
+      "ServerCallback": {
+        "After": "AntiInsult_Init"
+      }
     }
   ]
 }

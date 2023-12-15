@@ -197,7 +197,7 @@ void function DamageCoreThink( entity weapon, float coreDuration )
 		if (weapon.GetWeaponClassName() == "mp_titanweapon_xo16_shorty") {
 			SendHudMessage(owner, "为了防止崩溃, 已将短点射xo16原定的增伤改为提升换弹速度, 泰坦伤害依旧正常提升",  -1, 0.4, 200, 200, 225, 0, 0.15, 6, 1);
 			weapon.AddMod("fast_reload")
-		} else if (weapon.GetWeaponClassName() == "mp_titanweapon_particle_accelerator") {
+		} else if (weapon.GetWeaponClassName() == "mp_titanweapon_particle_accelerator" || weapon.GetWeaponClassName() == "mp_titanweapon_sticky_40mm") {
 			// do nothing
 		} else
 			foreach( mod in GetWeaponBurnMods( weapon.GetWeaponClassName() ) )
