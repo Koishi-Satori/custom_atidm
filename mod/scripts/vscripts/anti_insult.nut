@@ -6,7 +6,7 @@ const float NEAR_CHECK_RANGE = 10
 const float TITAN_CHECK_RANGE_MULTIPLIER = 2.0	// no work for MAX_CHECK_RANGE
 const float MAX_CHECK_RANGE = 1000
 const float THRESHLOD = 2.1
-bool enable_anti_instlt = false
+bool enable_anti_insult = false
 
 void function AntiInsult_Init()
 {
@@ -39,7 +39,7 @@ void function OnPlayerKilled( entity victim, entity attacker, var damageInfo )
 	if( DamageInfo_GetDamageSourceIdentifier( damageInfo ) == eDamageSourceId.anti_insult )
 		return
 
-	if (!enable_anti_instlt)
+	if (!enable_anti_insult)
 		return
 
 	thread PlayerDuckCheck( attacker )
