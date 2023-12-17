@@ -90,19 +90,23 @@ void function DisplayHealth(entity player) {
         if (!IsValid(player) || !IsAlive(player))
             break
         int hp = player.GetHealth()
-        int shp = player.GetShieldHealth()
+        int shp
+        int shp_max
+        if (player.IsTitan()) {
+            shp = player.GetTitanSoul().GetShieldHealth()
+            shp_max = player.GetTitanSoul().GetShieldHealthMax()
+        } else {
+            shp = player.GetShieldHealth()
+            shp_max = player.GetShieldHealthMax()
+        }
         vector vel = player.GetVelocity()
         float vel_x = vel.x
         float vel_y = vel.y
-//        float vel_z = vel.z
-        float playerVelKph = sqrt(vel_x * vel_x + vel_y * vel_y) * 0.091392 * 0.621371
-//        if (vel_z < 0)
-//            vel_z *= -1
-//        vel_z *= (0.091392 * 0.621371)
+        float playerVel = sqrt(vel_x * vel_x + vel_y * vel_y) * 0.091392 * 0.621371
 
         NSEditStatusMessageOnPlayer(player, "", "当前血量: " + hp + "/" + player.GetMaxHealth(), id_hp)
-        NSEditStatusMessageOnPlayer(player, "", "当前盾量: " + shp + "/" + player.GetShieldHealthMax(), id_shp)
-        NSEditStatusMessageOnPlayer(player, "", "当前速度: " + format("%3i", playerVelKph) + "kph", id_vel)
+        NSEditStatusMessageOnPlayer(player, "", "当前盾量: " + shp + "/" + shp_max, id_shp)
+        NSEditStatusMessageOnPlayer(player, "", "当前速度: " + format("%3i", playerVel) + "kph", id_vel)
         WaitFrame()
     }
 }
@@ -114,8 +118,9 @@ void function RespawnMessage_CallBackImpl(entity player) {
 		player.s.KC_HasShownTips <- true;
 	} else if (!TeamBalanceCheck())
 		Chat_ServerPrivateMessage(player, "检测到当前队伍不平衡, 可以在控制台用!switch更换队伍", false);
-    Chat_ServerPrivateMessage(player,"欢迎来到Kkoishi的服务器, 服主是[特莉波卡]Satori_KKoishi, 服务器群号: 753171184", false)
-	Chat_ServerPrivateMessage(player, "在铁驭状态下您可以长按使用键(默认为E)来打开泰坦装备选择菜单, 未选择的装备将会随机选择一件使用, 可选择的为主武器和技能", false);
+    NSSendAnnouncementMessageToPlayer(player, "長按泰坦輔助技能鍵(默認是G)打開泰坦裝備選擇菜單", "服務器群號: 753171184", <255,255,255>, 2, 5)
+    Chat_ServerPrivateMessage(player,"欢迎来到Kkoishi的服务器, 服主是[特莉波卡]Satori_KKoishi", false)
+	Chat_ServerPrivateMessage(player, "在铁驭状态下您可以长按泰坦辅助技能键(默认为G)来打开泰坦装备选择菜单, 未选择的装备将会随机选择一件使用, 可选择的为主武器和技能", false);
 	Chat_ServerPrivateMessage(player, "您选择的装备将会被保存, 用于之后的对局. 服务器群号: 753171184", false);
     Chat_ServerPrivateMessage(player, "消音器莫桑比克将会被替换为双管霰弹, 弹射克莱伯将被替换为和平克莱伯", false)
 	player.EndSignal( "OnDestroy" );
@@ -323,7 +328,7 @@ void function OnClientConnected(entity player) {
     player.s.KC_GUIActive <- true
     player.s.KC_GUIClose <- false
     player.s.KC_GUIDisable <- false
-    AddPlayerHeldButtonEventCallback(player, IN_USE, TitanLoadoutGUI, 0)
+    AddPlayerHeldButtonEventCallback(player, IN_OFFHAND2, TitanLoadoutGUI, 0)
 }
 
 void function TitanLoadoutGUI(entity player) {

@@ -298,7 +298,7 @@ void function GlobalAnimEvent_GiveAmmo( entity guy )
 		if ( weapons.len() > 0 )
 		{
 			entity weapon = weapons[0]
-			if ( IsValid( weapon ) )
+			if ( IsValid( weapon ) && weapon.GetWeaponClassName() != "mp_titanweapon_arc_cannon" )
 			{
 				weapon.SetWeaponPrimaryClipCount( weapon.GetWeaponPrimaryClipCountMax() )
 			}

@@ -18,6 +18,13 @@
       "ServerCallback": {
         "After": "AntiInsult_Init"
       }
+    },
+    {
+      "Path": "ttf1_feature.nut",
+      "RunOn": "SERVER && MP",
+      "ServerCallback": {
+        "After": "ttf1_feature_init"
+      }
     }
   ]
 }
